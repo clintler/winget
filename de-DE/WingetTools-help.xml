@@ -1,0 +1,1380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-WGInstalled</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>WGInstalled</command:noun>
+      <maml:description>
+        <maml:para>Get packages installed with winget.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Dieser Befehl ruft eine Liste aller Pakete ab, die mit winget installiert wurden. Dies sind Pakete, die von Winget bezogen werden. Dieser Befehl muss überarbeitet werden, wenn mehr Quellen verfügbar werden.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-WGInstalled</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>Source</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>winget</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>Source</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>winget</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>wgPackage</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/learn</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGInstalled -outvariable in
+
+Name                      ID                        Version             Description
+----                      --                        -------             -----------
+Visual Studio Community   Microsoft.VisualStudio.20 16.11.10            The Community edition of Visual Studio, an
+2019                      19.Community                                  integrated development environment (IDE) from
+                                                                        Microsoft.  Individual developers have no
+                                                                        restrictions on their use of the Community
+                                                                        edition.
+Audacity                  Audacity.Audacity         3.1.3               Audacity is a free, easy-to-use, multi-track
+                                                                        audio editor and recorder for Windows, macOS,
+                                                                        GNU/Linux and other operating systems.
+Ubuntu                    Canonical.Ubuntu          2004.2021.825.0     Ubuntu on Windows allows you to use Ubuntu
+                                                                        Terminal and run Ubuntu command line
+                                                                        utilities including bash, ssh, git, apt and
+                                                                        many more. This is the latest LTS release.
+CCleaner                  Piriform.CCleaner         6.00                CCleaner is a utility used to clean
+                                                                        potentially unwanted files and invalid
+                                                                        Windows Registry entries from a computer.
+...</dev:code>
+        <dev:remarks>
+          <maml:para>Aufgrund des Verarbeitungsaufwands wird empfohlen, die Ergebnisse in einer Variablen zu speichern.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C\&gt;  $in | format-table -view update
+
+ID                                          InstalledVersion     OnlineVersion        Update
+--                                          ----------------     -------------        ------
+Microsoft.VisualStudio.2019.Community       16.11.10             16.11.17             True
+Audacity.Audacity                           3.1.3                3.1.3                False
+Piriform.CCleaner                           6.00                 6.01                 True
+Canonical.Ubuntu                            2004.2021.825.0      2004.2021.825.0      False
+Discord.Discord                             1.0.9003             1.0.9005             True
+Foxit.FoxitReader                           12.0.0.12394         12.0.1.12430         True
+Git.Git                                     2.37.1               2.37.1               False</dev:code>
+        <dev:remarks>
+          <maml:para>Es gibt eine benannte Tabellenansicht, die Sie verwenden können, um potenzielle Aktualisierungen schnell zu identifizieren.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/38Ps9nb</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGPackage</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGUpgrade</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-WGPackage</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>WGPackage</command:noun>
+      <maml:description>
+        <maml:para>Informieren Sie sich über ein Winget-Paket</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Dieser Befehl ist ein PowerShell-Wrapper um winget.command, der ein Paket abruft und ein Objekt erstellt, das Sie in PowerShell verwenden können.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-WGPackage</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ID</maml:name>
+          <maml:description>
+            <maml:para>Specify the package ID.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Source</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>winget</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-WGPackage</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>Leiten Sie eine Winget-Suche an diese Funktion weiter.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Source</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>winget</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-WGPackage</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Moniker</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie den Winget-Moniker an.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Source</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>winget</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-WGPackage</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie den Winget-Paketnamen an.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Source</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>winget</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>ID</maml:name>
+        <maml:description>
+          <maml:para>Specify the package ID.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>Leiten Sie eine Winget-Suche an diese Funktion weiter.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Moniker</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie den Winget-Moniker an.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie den Winget-Paketnamen an.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Source</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie eine Winget-Quelle an. Derzeit gibt es wirklich nur eine einzige Quelle, aber dies könnte sich irgendwann ändern.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>winget</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>WGPackage</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGPackage -name "Foxit PDF Reader"
+
+Name             ID                Version      Description
+----             --                -------      -----------
+Foxit PDF Reader Foxit.FoxitReader 11.2.1.53537 Foxit is a powerful PDF reader
+                                                for viewing, filling out forms
+                                                and more.</dev:code>
+        <dev:remarks>
+          <maml:para>Holen Sie sich ein Paket mit seinem Namen.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGPackage -id "Microsoft.Powershell.Preview" | Select-Object *
+
+Name                  : PowerShell Preview
+ID                    : Microsoft.PowerShell.Preview
+Version               : 7.3.0.3
+Publisher             : Microsoft Corporation
+Publisher URL         : https://github.com/PowerShell/PowerShell
+Publisher Support URL : https://github.com/PowerShell/PowerShell/issues
+Author                : Microsoft Corporation
+Moniker               : pwsh-preview
+Description           : PowerShell is a cross-platform (Windows, Linux, and
+                        macOS) automation and configuration tool/framework that
+                        works well with your existing tools and is optimized
+                        for dealing with structured data (e.g. JSON, CSV, XML,
+                        etc.), REST APIs, and object models.
+Homepage              : https://microsoft.com/PowerShell</dev:code>
+        <dev:remarks>
+          <maml:para>Die Ausgabe ist ein reichhaltiges Objekt.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; winget search --tag powerbi | Get-WGPackage | Select-Object Name,ID,Version
+
+
+Name                      ID                  Version
+----                      --                  -------
+DAX Studio                DaxStudio.DaxStudio 2.17.3.683
+Microsoft PowerBI Desktop Microsoft.PowerBI   2.102.845.0</dev:code>
+        <dev:remarks>
+          <maml:para>Sie können die Ergebnisse eines Winget-Suchbefehls an diese Funktion weiterleiten.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/3jQh9MH</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGInstalled</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-WGPath</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>WGPath</command:noun>
+      <maml:description>
+        <maml:para>Rufen Sie den Pfad der ausführbaren Winget-Datei ab</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Normalerweise werden Sie winget in Ihrem Benutzerkontext ausführen. Wenn Sie winget jedoch im Systemkontext ausführen, kann dieses Konto winget.exe nicht finden. Dieser Befehl gibt je nach Benutzerkontext den vollständigen Pfad zur Datei winget.exe zurück.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-WGPath</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGPath
+C:\Users\Jeff\AppData\Local\Microsoft\WindowsApps\Winget.exe</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/3QRKW5t</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-WGUpgrade</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>WGUpgrade</command:noun>
+      <maml:description>
+        <maml:para>Erhalten Sie verfügbare Winget-Upgrades.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Verwenden Sie diesen Befehl, um Informationen über verfügbare Winget-Upgrades zu erhalten. Sie können dann manuell entscheiden, was aktualisiert werden soll, indem Sie „winget“ oder „Pipe to Invoke-WingetUpgrade“ verwenden. Die Ausgabe zeigt keine Pakete an, bei denen die installierte Version nicht ermittelt werden kann.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-WGUpgrade</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ID</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie ein Paket nach ID an. Wildcards sind erlaubt.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-WGUpgrade</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie ein Paket nach Namen an. Wildcards sind erlaubt.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ID</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie ein Paket nach ID an. Wildcards sind erlaubt.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie ein Paket nach Namen an. Wildcards sind erlaubt.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>wgUpgrade</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGUpgrade
+
+Name                      ID                                            Installed       Available
+----                      --                                            ---------       ---------
+Visual Studio Community   Microsoft.VisualStudio.2019.Community         16.11.10        16.11.17
+2019
+CCleaner                  Piriform.CCleaner                             6.00            6.01
+Discord                   Discord.Discord                               1.0.9003        1.0.9005
+Foxit PDF Reader          Foxit.FoxitReader                             12.0.0.12394    12.0.1.12430
+Notepad++                 Notepad++.Notepad++                           8.3.3           8.4.4
+...</dev:code>
+        <dev:remarks>
+          <maml:para>Holen Sie sich alle verfügbaren Updates.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; get-wgupgrade p*
+
+Name                      ID                                            Installed       Available
+----                      --                                            ---------       ---------
+PowerToys (Preview)       Microsoft.PowerToys                           0.58.0          0.61.1
+Python 3                  Python.Python.3                               3.10.3          3.10.6</dev:code>
+        <dev:remarks>
+          <maml:para>Erhalten Sie Upgrades mit einem Namen, der mit P beginnt.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGUpgrade -id micro* | Select-Object Name,Version,Available
+
+Name                                                 Version       Available
+----                                                 -------       ---------
+Visual Studio Community 2019                         16.11.10      16.11.17
+Microsoft Visual C++ 2015-2022 Redistributable (x86) 14.31.31103.0 14.32.31332.0
+Microsoft .NET SDK 3.1                               3.1.419       3.1.421
+PowerToys (Preview)                                  0.58.0        0.61.1
+Microsoft Visual C++ 2015-2022 Redistributable (x86) 14.32.31326.0 14.32.31332.0</dev:code>
+        <dev:remarks>
+          <maml:para>Erhalten Sie Upgrades nach ID, die mit „micro“ beginnt. Beachten Sie, dass sich der eigentliche Objekteigenschaftsname „Version“ von der formatierten Spaltenüberschrift „Installiert“ unterscheidet.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/3fVkHKQ</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Invoke-WGUpgrade</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGInstalled</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Install-WinGet</command:name>
+      <command:verb>Install</command:verb>
+      <command:noun>WinGet</command:noun>
+      <maml:description>
+        <maml:para>Installieren Sie die neueste Winget-Version von Github.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Bis winget öffentlich im Microsoft Store verfügbar ist, können Sie die neueste Version von Github herunterladen und installieren. Dieser Befehl muss in einer Windows PowerShell-Sitzung unter Windows 10 oder Windows 11 ausgeführt werden. Das Paket erfordert das Paket Microsoft.VCLibs.140.00.UWPDesktop. Wenn es nicht gefunden wird, wird es heruntergeladen und installiert.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Install-WinGet</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Fordert Sie zur Bestätigung auf, bevor das Cmdlet ausgeführt wird.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Passthru</maml:name>
+          <maml:description>
+            <maml:para>Zeigen Sie das AppxPackage nach der Installation an.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Zeigt, was passieren würde, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht ausgeführt.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Preview</maml:name>
+          <maml:description>
+            <maml:para>Installieren Sie den neuesten Vorschau-Build.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Fordert Sie zur Bestätigung auf, bevor das Cmdlet ausgeführt wird.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Passthru</maml:name>
+        <maml:description>
+          <maml:para>Zeigen Sie das AppxPackage nach der Installation an.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Zeigt, was passieren würde, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht ausgeführt.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Preview</maml:name>
+        <maml:description>
+          <maml:para>Installieren Sie den neuesten Vorschau-Build.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>AppxPackage</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Install-Winget</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/2WYteX6</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGReleaseNote</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Invoke-WGUpgrade</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>WGUpgrade</command:noun>
+      <maml:description>
+        <maml:para>Rufen Sie ein Winget-Upgrade für alle verfügbaren Upgrades auf.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Dieser Befehl wurde entwickelt, um das Upgrade von Winget-Paketen zu vereinfachen. Der Befehl überspringt Pakete mit unbekannten Versionen. Der Installationsprozess akzeptiert alle Lizenzen und Vereinbarungen und verwendet die Silent-Winget-Option.</maml:para>
+      <maml:para>Beachten Sie, dass winget beim Versuch, das Update aufzurufen, immer noch auf ein Problem stoßen kann.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-WGUpgrade</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Fordert Sie zur Bestätigung auf, bevor das Cmdlet ausgeführt wird.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Zeigt, was passieren würde, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht ausgeführt.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ID</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie ein Paket nach ID an. Wildcards sind erlaubt.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Invoke-WGUpgrade</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Fordert Sie zur Bestätigung auf, bevor das Cmdlet ausgeführt wird.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Zeigt, was passieren würde, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht ausgeführt.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>Geben Sie ein wgUpgrade-Objekt an.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Invoke-WGUpgrade</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Fordert Sie zur Bestätigung auf, bevor das Cmdlet ausgeführt wird.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Zeigt, was passieren würde, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht ausgeführt.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>All</maml:name>
+          <maml:description>
+            <maml:para>Update all packages.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludeUnknown</maml:name>
+          <maml:description>
+            <maml:para>Aktualisieren Sie Pakete, auch wenn ihre aktuelle Version nicht ermittelt werden kann. Dies erfordert den Parameter -All.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Fordert Sie zur Bestätigung auf, bevor das Cmdlet ausgeführt wird.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Zeigt, was passieren würde, wenn das Cmdlet ausgeführt wird. Das Cmdlet wird nicht ausgeführt.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ID</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie ein Paket nach ID an. Wildcards sind erlaubt.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>Geben Sie ein wgUpgrade-Objekt an.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>All</maml:name>
+        <maml:description>
+          <maml:para>Update all packages.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IncludeUnknown</maml:name>
+        <maml:description>
+          <maml:para>Aktualisieren Sie Pakete, auch wenn ihre aktuelle Version nicht ermittelt werden kann. Dies erfordert den Parameter -All.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Invoke-WGUpgrade -id Microsoft.VC++2015-2019Redist-x64
+
+Found Microsoft Visual C++ 2015-2019 Redistributable (x64) [Microsoft.VC++2015-2019Redist-x64] Version 14.29.30135.0
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://download.visualstudio.microsoft.com/download/pr/d3cbdace-2bb8-4dc5-a326-2c1c0f1ad5ae/9B9DD72C27AB1DB081DE56BB7B73BEE9A00F60D14ED8E6FDE45DAB3E619B5F04/VC_redist.x64.exe
+Successfully verified installer hash
+Starting package install...
+Successfully installed</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGUpgrade -Name p* | Invoke-WGUpgrade -WhatIf
+What if: Performing the operation "Upgrade from 3.2.0+06857 to 3.3.1+06924" on target "PrivateInternetAccess.PrivateInternetAccess".
+What if: Performing the operation "Upgrade from 0.58.0 to 0.61.1" on target "Microsoft.PowerToys".
+What if: Performing the operation "Upgrade from 3.10.3 to 3.10.6" on target "Python.Python.3".</dev:code>
+        <dev:remarks>
+          <maml:para>Sie können die Ausgabe von Get-WGUpgrade an diesen Befehl weiterleiten.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGUpgrade | Out-GridView -OutputMode Multiple | Invoke-WGUpgrade</dev:code>
+        <dev:remarks>
+          <maml:para>Leiten Sie die Liste der verfügbaren Upgrades an Out-Gridview weiter, wo Sie Elemente auswählen können. Invoke-WGUpgrade installiert dann die ausgewählten Upgrades.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 4 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Invoke-WGUpgrade -all</dev:code>
+        <dev:remarks>
+          <maml:para>Dies ist das Äquivalent zum Ausführen von winget upgrade --all.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/3FVQsOn</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGUpgrade</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGInstalled</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-WGVersion</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>WGVersion</command:noun>
+      <maml:description>
+        <maml:para>Testen Sie die Winget-Version.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Test-WGVersion ist ein einfacher Befehl, mit dem Sie feststellen können, ob Sie winget aktualisieren müssen.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-WGVersion</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>Quiet</maml:name>
+          <maml:description>
+            <maml:para>Rufen Sie ein boolesches Ergebnis ab, das angibt, ob ein Update verfügbar ist.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>Quiet</maml:name>
+        <maml:description>
+          <maml:para>Rufen Sie ein boolesches Ergebnis ab, das angibt, ob ein Update verfügbar ist.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.SwitchParameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>WGVersion</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Test-WGVersion
+
+Installed    Online       Update    Command
+---------    ------       ------    -------
+1.1.13405    1.1.12653    False     C:\Users\Jeff\AppData\Local\Microsoft\Windo…</dev:code>
+        <dev:remarks>
+          <maml:para>Die Standardausgabe ist ein Objekt, das die aktuell installierte Version und die neueste stabile Version online anzeigt. Wenn ein Update verfügbar ist und Sie die PowerShell-Konsole oder VS Code ausführen, wird der Update-Wert in Grün angezeigt.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Test-WGVersion -Quiet
+False</dev:code>
+        <dev:remarks>
+          <maml:para>Führen Sie den Test aus und erhalten Sie ein einfaches, boolesches Ergebnis, das angibt, ob ein Update verfügbar ist.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/3GYwrbj</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-WGReleaseNote</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-WGReleaseNote</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>WGReleaseNote</command:noun>
+      <maml:description>
+        <maml:para>Holen Sie sich die neuesten Versionshinweise für winget.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Dieser Befehl fragt das Github-Repository nach dem Winget-Projekt ab und zeigt die Versionshinweise für die neueste Version an. Sie können es auch im Markdown-Format anzeigen oder zur Online-Version gehen.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-WGReleaseNote</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="md">
+          <maml:name>AsMarkdown</maml:name>
+          <maml:description>
+            <maml:para>Erstellen Sie ein Markdown-Dokument.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Online</maml:name>
+          <maml:description>
+            <maml:para>Öffnen Sie den Speicherort der Versionshinweise online mit Ihrem Standard-Webbrowser.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Preview</maml:name>
+          <maml:description>
+            <maml:para>Holen Sie sich die neueste Vorschauversion.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="md">
+        <maml:name>AsMarkdown</maml:name>
+        <maml:description>
+          <maml:para>Erstellen Sie ein Markdown-Dokument.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Online</maml:name>
+        <maml:description>
+          <maml:para>Öffnen Sie den Speicherort der Versionshinweise online mit Ihrem Standard-Webbrowser.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Preview</maml:name>
+        <maml:description>
+          <maml:para>Holen Sie sich die neueste Vorschauversion.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>WGReleaseNote</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGReleaseNote
+
+Name       : Windows Package Manager v1.1.12653
+Version    : v1.1.12653
+Published  : 9/27/2021 6:08:01 PM
+Prerelease : False
+Notes      : This release represents our Windows Package Manager 1.release
+             candidate build for Windows 10 (1809+).
+
+             Experimental features have been disabled in this release. We will
+             follow this release with another Pre-release "developer"
+             build at GitHub so users can continue with experimental features
+             available.
+
+             # Bugs
+             #797 Silent install of "winget install git.git" is not working
+             #1497 Make rename retry more frequently for longer, then try
+             making a hardlink
+Link       : https://github.com/microsoft/winget-cli/releases/tag/v1.1.12653</dev:code>
+        <dev:remarks>
+          <maml:para>Die Standardausgabe.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGReleaseNote -asmarkdown | Show-Markdown</dev:code>
+        <dev:remarks>
+          <maml:para>Bei Ausführung in PowerShell 7 können Sie die Markdown-Cmdlets verwenden.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGReleaseNote | Select-Object Name,Version,Published
+
+Name                               Version    Published
+----                               -------    ---------
+Windows Package Manager v1.1.12653 v1.1.12653 9/27/2021 6:08:01 PM</dev:code>
+        <dev:remarks>
+          <maml:para>Die Ausgabe ist ein Objekt.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 4 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-WGReleaseNote -Preview
+
+
+Name       : Windows Package Manager v1.1.12701
+Version    : v1.1.12701
+Published  : 9/28/2021 10:30:01 AM
+Prerelease : True
+Notes      : This release is the first development build after the Windows
+             Package Manager 1.1 release candidate build for Windows 10
+             (1809+).
+
+             Experimental features have been enabled in this release. This
+             build will be released to Windows Insider Dev builds, and
+             Windows Package Manager Insiders.</dev:code>
+        <dev:remarks>
+          <maml:para>Holen Sie sich die Versionshinweise für die neueste Vorschau.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://bit.ly/3nauPEz</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Install-WinGet</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-WGVersion</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>
